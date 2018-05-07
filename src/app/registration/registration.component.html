@@ -1,0 +1,13 @@
+<h1 class="margin">Categories:</h1>
+<mat-grid-list cols="4" rowHeight="300px">
+  <mat-grid-tile *ngFor="let category of categories" [colspan]="2" [rowspan]="2">
+    <mat-card class="example-card">
+      <a routerLink="/category-details" [queryParams]="{categoryId:category.categoryId}">
+        <img style="width: 245px; height: 240px;" mat-card-image src="{{ category.categoryImage }}" alt="Photo of a {{ category.categoryName }}">
+      <mat-card-content>
+        <h3 style="text-align: center">{{ category.categoryName | uppercase }}</h3>
+      </mat-card-content>
+      </a>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

@@ -1,0 +1,23 @@
+<h1 class="margin">List of Topics:</h1>
+<mat-grid-list cols="4" rowHeight="300px">
+    <mat-grid-tile  *ngFor="let question of questionGen" [colspan]="2" [rowspan]="2">
+        <mat-card class="example-card">
+            <a routerLink="/topic-details" [queryParams]="{ topicName: question.topicName}">
+                <mat-card-header>
+                    <mat-card-title>{{ question.topicName | uppercase }}</mat-card-title>
+                </mat-card-header>
+                <img style="height: 220px;" mat-card-image src="{{ question.topicImage }}" alt="Photo of a {{ question.topicName }}">
+                <mat-card-content>
+                    <p>
+                        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes
+                        very well with mountainous terrain, the Shiba Inu was originally bred for hunting.
+                    </p>
+                </mat-card-content>
+            </a>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<div class="container">
+    <button mat-raised-button color="accent" (click)="goBack()">Back</button>
+</div>

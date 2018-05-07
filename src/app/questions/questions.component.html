@@ -1,0 +1,11 @@
+<mat-list>
+  <h1 mat-subheader>Questions</h1>
+  <mat-list-item *ngFor="let question of questionGen">
+    <h4 mat-line>{{ question.questionStem }}</h4>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+</mat-list>
+
+<div class="container">
+  <button mat-raised-button color="primary" (click)="goBack()">Back</button>
+</div>

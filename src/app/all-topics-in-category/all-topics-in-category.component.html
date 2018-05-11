@@ -4,7 +4,7 @@
         <mat-card class="example-card">
             <a routerLink="/topic-details" [queryParams]=" {topicName: question.topicName,categoryId:categoryId}">
                 <mat-card-header>
-                    {{categoryId}}
+                    
                     <mat-card-title>{{ question.topicName | uppercase }}</mat-card-title>
                 </mat-card-header>
                 <img style="height: 220px;" mat-card-image src="{{ question.topicImage }}" alt="Photo of a {{ question.topicName }}">

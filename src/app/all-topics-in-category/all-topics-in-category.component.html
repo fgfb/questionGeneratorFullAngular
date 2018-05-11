@@ -1,16 +1,16 @@
 <h1 class="margin">List of Topics:</h1>
 <mat-grid-list cols="4" rowHeight="300px">
-    <mat-grid-tile  *ngFor="let question of questionGen" [colspan]="2" [rowspan]="2">
+    <mat-grid-tile *ngFor="let question of questionGen" [colspan]="2" [rowspan]="2">
         <mat-card class="example-card">
-            <a routerLink="/topic-details" [queryParams]="{ topicName: question.topicName}">
+            <a routerLink="/topic-details" [queryParams]="{ topicName: question.topicName }">
                 <mat-card-header>
                     <mat-card-title>{{ question.topicName | uppercase }}</mat-card-title>
                 </mat-card-header>
                 <img style="height: 220px;" mat-card-image src="{{ question.topicImage }}" alt="Photo of a {{ question.topicName }}">
                 <mat-card-content>
                     <p>
-                        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes
-                        very well with mountainous terrain, the Shiba Inu was originally bred for hunting.
+                        {{question.topicName | uppercase}} is one of the oldest academic disciplines and, through its inclusion of astronomy, perhaps the oldest. Over the
+                        last two millennia, physics, chemistry, biology, and certain branches of mathematics were a part.
                     </p>
                 </mat-card-content>
             </a>
@@ -20,4 +20,10 @@
 
 <div class="container">
     <button mat-raised-button color="accent" (click)="goBack()">Back</button>
+</div>
+
+<div style="margin-right:40px; margin-bottom: 100px;">
+    <button style="float: right" mat-fab color="primary" (click)="openDialog()">
+        <span style="font-size: 30px">+</span>
+    </button>
 </div>

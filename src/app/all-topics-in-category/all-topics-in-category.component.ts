@@ -4,6 +4,8 @@ import { QuestionService } from "../questionservice.service";
 import { Router } from "@angular/router";
 import { ActivatedRoute } from "@angular/router";
 import { Location } from "@angular/common";
+import { MatDialog } from '@angular/material';
+import { TopicDialogComponent } from "../topic-dialog/topic-dialog.component";
 
 @Component({
   selector: "app-all-topics-in-category",
@@ -18,7 +20,8 @@ export class AllTopicsInCategoryComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location,
     private router: Router,
-    private questionService: QuestionService
+    private questionService: QuestionService,
+    private dialog: MatDialog,
   ) {}
 
   ngOnInit() {
@@ -27,7 +30,6 @@ export class AllTopicsInCategoryComponent implements OnInit {
 
   getTopics() {
     this.route.queryParams.subscribe(params => {
-      console.log(+params.categoryId);
       this.categoryId = +params.categoryId;
     });
     this.questionService.getTopics(this.categoryId).subscribe(questionGen => {
@@ -37,5 +39,15 @@ export class AllTopicsInCategoryComponent implements OnInit {
 
   goBack() {
     this.location.back();
+  }
+
+  openDialog(): void {
+    let dialogRef = this.dialog.open(TopicDialogComponent, {
+      width: '500px',
+    });
+ 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 }

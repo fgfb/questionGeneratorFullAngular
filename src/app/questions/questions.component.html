@@ -2,10 +2,18 @@
   <h1 mat-subheader>Questions</h1>
   <mat-list-item *ngFor="let question of questionGen">
     <h4 mat-line>{{ question.questionStem }}</h4>
+    <button mat-button color="primary">Edit</button>
+    <button mat-button color="warn">Delete</button>
   </mat-list-item>
   <mat-divider></mat-divider>
 </mat-list>
 
 <div class="container">
-  <button mat-raised-button color="primary" (click)="goBack()">Back</button>
+  <button mat-raised-button color="accent" (click)="goBack()">Back</button>
+</div>
+
+<div style="margin-right:40px;">
+  <button style="float: right" mat-fab color="primary" (click)="openDialog()">
+      <span style="font-size: 30px">+</span>
+  </button>
 </div>

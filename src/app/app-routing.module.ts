@@ -11,8 +11,6 @@ const routes: Routes = [
   { path: "categories", component: RegistrationComponent },
   { path: 'category-details', component: AllTopicsInCategoryComponent },
   { path: 'topic-details', component: QuestionsComponent }
-  // { path: 'categories/:categoryId/:topicName', component: QuestionsComponent },
-  // { path: 'categories/:categoryId/:topicName', component: QuestionsComponent }
 ];
 
 @NgModule({

@@ -7,24 +7,22 @@ import { AppComponent } from "./app.component";
 import { FormsModule } from "@angular/forms";
 import { QuestionService } from "./questionservice.service";
 import { AppRoutingModule, routingComponents } from "./app-routing.module";
-
 import { MatGridListModule } from "@angular/material/grid-list";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatExpansionModule } from "@angular/material/expansion";
-import {
-  MatButtonModule,
-  MatIconModule,
-  MatInputModule
-} from "@angular/material";
+import { MatButtonModule, MatIconModule, MatInputModule } from "@angular/material";
 import { MatSelectModule } from "@angular/material/select";
 import { MatRadioModule } from "@angular/material/radio";
-
 import { MatSidenavModule } from "@angular/material";
-
 import { AllTopicsInCategoryComponent } from "./all-topics-in-category/all-topics-in-category.component";
 import { QuestionsComponent } from "./questions/questions.component";
 import { MatCardModule } from "@angular/material/card";
 import { MatListModule } from "@angular/material/list";
+import { TopicDialogComponent } from './topic-dialog/topic-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { QuestionDialogComponent } from './question-dialog/question-dialog.component';
+import { QuestionDetailComponent } from './question-detail/question-detail.component';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +30,10 @@ import { MatListModule } from "@angular/material/list";
     routingComponents,
 
     AllTopicsInCategoryComponent,
-    QuestionsComponent
+    QuestionsComponent,
+    TopicDialogComponent,
+    QuestionDialogComponent,
+    QuestionDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -49,12 +50,12 @@ import { MatListModule } from "@angular/material/list";
     MatInputModule,
     MatSelectModule,
     MatRadioModule,
-
+    MatDialogModule,
     MatSidenavModule,
     MatCardModule,
     MatListModule
   ],
-  entryComponents: [],
+  entryComponents: [TopicDialogComponent, QuestionDialogComponent],
   providers: [QuestionService],
   bootstrap: [AppComponent]
 })

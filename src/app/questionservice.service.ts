@@ -8,21 +8,32 @@ import { of } from "rxjs/observable/of";
 export class QuestionService {
   constructor(private http: HttpClient) {}
 
-  questionGenUrl = "http://localhost:8080/api/v1/question-generator/category";
-  topicsUrl = "http://localhost:8080/api/v1/question-generator/category";
-  questionsUrl = "http://localhost:8080/api/v1/question-generator/category";
-
+  url = "http://localhost:8080/api/v1/question-generator/category";
+  
   getCategories(): Observable<QuestionGen[]> {
-    return this.http.get<QuestionGen[]>(this.questionGenUrl);
+    return this.http.get<QuestionGen[]>(this.url);
+  }
+
+  addTopic(questionGen): Observable<QuestionGen[]>{
+    const categoryId = 1;
+    const getUrl = `${this.url}/${categoryId}/topics`;
+    return this.http.put<QuestionGen[]>(getUrl,questionGen);
   }
 
   getTopics(categoryId: number): Observable<QuestionGen[]> {
-    const getUrl = `${this.topicsUrl}/${categoryId}/topics`;
+    const getUrl = `${this.url}/${categoryId}/topics`;
     return this.http.get<QuestionGen[]>(getUrl);
   }
 
+  addQuestion(questionGen): Observable<QuestionGen[]>{
+    const categoryId = 1;
+    const topicName = "chemistry";
+    const getUrl = `${this.url}/${categoryId}/${topicName}/questions`;
+    return this.http.put<QuestionGen[]>(getUrl,questionGen);
+  }
+
   getQuestions(categoryId: number, topicName: string): Observable<QuestionGen[]> {
-    const getUrl = `${this.questionsUrl}/${categoryId}/${topicName}/questions`;
+    const getUrl = `${this.url}/${categoryId}/${topicName}/questions`;
     return this.http.get<QuestionGen[]>(getUrl);
   }
 }

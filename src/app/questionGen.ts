@@ -1,6 +1,7 @@
 import { Options } from "selenium-webdriver/chrome";
 
 export class QuestionGen {
+  constructor() {}
   categoryId: number;
   categoryName: String;
   categoryImage: String;

@@ -14,7 +14,7 @@ import { QuestionDialogComponent } from "../question-dialog/question-dialog.comp
 })
 export class QuestionsComponent implements OnInit {
   topicName: string;
-  categoryId: number = 1;
+  categoryId: number;
   questionGen: QuestionGen[];
 
   constructor(
@@ -29,15 +29,14 @@ export class QuestionsComponent implements OnInit {
   }
 
   ngOnInit() {
+    
     this.getQuestions();
   }
 
   getQuestions() {
     this.route.queryParams.subscribe(params => {
-      // console.log(
-      //   "This is in question component" + params.topicName + this.categoryId
-      // );
-      //this.categoryId = params.categoryId;
+      
+      this.categoryId = params.categoryId;
       this.topicName = params.topicName;
     });
     this.questionService
